@@ -1,6 +1,3 @@
-document.getElementById("greeting").textContent = "Student Result Manager"
-document.getElementById("greeting").style.color = "Orange";
-
 const studentName = document.getElementById("studentName");
 const course = document.getElementById("course");
 const score = document.getElementById("score");
