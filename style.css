@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --background: #210027;
+    --card: #3b0a3d;
+    --card-hover: #761c79;
+    --border: #eff7f3;
+
+    --text: #b0bac4;
+    --muted: #2ce0c8;
+
+    --primary: #1d0e63;
+    --primary-hover: #1bbac5;
+
+    --danger: #611b1b;
+    --danger-hover: #f87171;
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 50px 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--text);
+
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(12, 16, 212, 0.18),
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgba(29, 15, 219, 0.12),
+        transparent 35%
+      ),
+      var(--background);
+
+    animation: pageAppear 0.7s ease;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 35px;
+    letter-spacing: -1px;
+    animation: titleAppear 0.7s ease;
+  }
+
+  .general {
+    width: min(650px, 100%);
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(65, 4, 59, 0.918);
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 20px;
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    animation: cardAppear 0.8s ease;
+  }
+
+  .general input {
+    width: 100%;
+    padding: 13px 17px;
+    margin-bottom: 15px;
+    background: #031131;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    font-size: 0.95rem;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.2s ease;
+  }
+
+  .general input::placeholder {
+    color: #6489bd;
+  }
+
+  .general input:focus {
+    border-color: var(--primary);
+    box-shadow:
+      0 0 0 3px rgba(22, 22, 53, 0.15);
+    transform: translateY(-1px);
+  }
+
+  #addStudent {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(70, 12, 70);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background 0.25s ease,
+      transform 0.2s ease,
+      box-shadow 0.25s ease;
+  }
+
+  #addStudent:hover {
+    background: purple;
+    transform: translateY(-2px);
+  }
+
+  #addStudent:active {
+    transform: translateY(0);
+  }
+
+  #container {
+    margin-top: 25px;
+    display: grid;
+    gap: 12px;
+    font-weight: bold;
+  }
+
+  #container p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    /* line-height: 1.5; */
+    animation: resultAppear 0.4s ease both;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  #container p:hover {
+    background: var(--card-hover);
+    border-color: rgba(236, 30, 226, 0.5);
+    transform: translateY(-3px);
+}
+
+  #container p button {
+    padding: 8px 13px;
+    border: none;
+    border-radius: 7px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+
+  #container p button:first-of-type {
+    margin-left: auto;
+    background: rgba(239, 68, 239, 0.12);
+    color: var(--danger-hover);
+  }
+
+  #container p button:first-of-type:hover {
+    background: var(--danger);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  #container p button:nth-of-type(2) {
+    background: rgba(83, 16, 240, 0.12);
+    color: var(--primary-hover);
+  }
+
+  #container p button:nth-of-type(2):hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+
+    body {
+      padding: 30px 15px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    .general {
+      padding: 20px;
+      border-radius: 16px;
+    }
+
+    #container p {
+      padding: 14px;
+      font-size: 0.9rem;
+    }
+
+    #container p button {
+      padding: 7px 10px;
+    }
+  }
+
+  @keyframes pageAppear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes titleAppear {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes cardAppear {
+    from {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+  @keyframes resultAppear {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  button:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--primary-hover);
+    outline-offset: 3px;
+  }
